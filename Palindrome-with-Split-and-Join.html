@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Reverse in Place w/Palindrome Detector</title>
+
+</head>
+
+<body>
+
+    <h1>Reverse in Place w/Palindrome Detector</h1>
+    <h3>Your result should appear in the div below:</h3>
+
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        var words = ["hey", "my", "you"];
+        var reversedLetters = [];
+        var reversedWordArray = [];
+        var resultsDiv = document.getElementById("result");
+        var palindromeWord;
+
+        function Palindrome(arr) {
+            for (i = arr.length - 1; i >= 0; i--) {
+                reversedLetters = [];
+                splitItem = (arr[i].split(''));
+
+                for (j = splitItem.length - 1; j >= 0; j--) {
+                    var reversedWordArray = splitItem[j];
+
+                    reversedLetters.push(reversedWordArray);
+                    // joinedArray = reversedLetters.join();
+                    // console.log(joinedArray);
+                }
+                palindromeWord = reversedLetters.join("");
+                console.log(palindromeWord);
+                newDiv = document.createElement("div");
+                // below, we could use innerHtml if we wanted to parse the html from the array list, however, not necessary in this case, and we'll save a bit of processing power by using textContent instead
+                newDiv.textContent = palindromeWord;
+                console.log(newDiv);
+                resultsDiv.appendChild(newDiv);
+            }
+
+        }
+
+        Palindrome(words);
+    </script>
+</body>
+
+</html>
