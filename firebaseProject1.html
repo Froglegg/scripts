@@ -86,7 +86,8 @@ database.ref().push({
     name: name,
     role: role,
     date: date,
-    pay: pay
+    pay: pay,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
 });
 
   });
@@ -100,11 +101,21 @@ database.ref().push({
 
   // Change the value of our clickCounter to match the value in the database
   $("#table").append("<tr><td>"+ snapshot.val().name + "</td><td>" + snapshot.val().role + "</td><td>" + snapshot.val().date + "</td><td>" + snapshot.val().pay + "</td></tr>");
-  
+
 // If any errors are experienced, log them to console.
 }, function(errorObject) {
   console.log("The read failed: " + errorObject.code);
 });
+
+
+// console.log(childSnapshot.val().joinDate);
+// dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
+//       // Change the HTML to reflect
+//       $("#name-display").text(snapshot.val().name);
+//       $("#email-display").text(snapshot.val().email);
+//       $("#age-display").text(snapshot.val().age);
+//       $("#comment-display").text(snapshot.val().comment);
+//     });
 
 </script>    
 </body>
